@@ -1,2 +1,1 @@
-# portfolio
- 
+A portfolio made by Aly Shukry, showcasing projects and skills.
