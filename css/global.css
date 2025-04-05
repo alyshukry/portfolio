@@ -1,0 +1,148 @@
+@import url(global/header.css);
+@import url(global/screen.css);
+
+@font-face {
+    font-family: 'montserrat';
+    src: url(../assets/fonts/Montserrat-VariableFont_wght.ttf);
+} @font-face {
+    font-family: 'montserrat-italic';
+    src: url(../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf);
+}
+
+@keyframes sliding-background-right {
+    0% {background-position: 0% 50%;}
+    25% {background-position: 50% 50%;}
+    50% {background-position: 100% 50%;}
+    75% {background-position: 50% 50%;}
+    100% {background-position: 0% 50%;}
+}
+@keyframes sliding-background-left {
+    0% {background-position: 100% 50%;}
+    25% {background-position: 50% 50%;}
+    50% {background-position: 0% 50%;}
+    75% {background-position: 50% 50%;}
+    100% {background-position: 100% 50%;}
+}
+
+@keyframes marquee {
+    to {transform: translate(calc(-100% - 25px), 0);}
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    margin: 0;
+
+    background-color:rgb(80, 80, 80);
+
+}   main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    overflow-x: auto;
+
+}
+
+.button.gray {
+    --button-frame-gradient: linear-gradient(to bottom, rgba(244, 244, 244, 1), rgba(86, 86, 86, 1), rgba(189, 189, 189, 0.7));
+    --button-inner-gradient: linear-gradient(to bottom, rgba(213, 216, 216, 0.9), rgba(139, 144, 143, 0.7));
+    --button-text-color: rgb(100, 100, 100);
+
+    --button-hover-frame-gradient: linear-gradient(to top, rgb(244, 244, 244), rgb(86, 86, 86), rgb(147, 179, 174));
+    --button-hover-inner-gradient: linear-gradient(to top, rgb(213, 216, 216), rgb(129, 140, 138));
+    --button-hover-text-color: rgb(100, 100, 100);
+}
+
+.button.circle {
+    --button-width: 48px;
+    --button-height: 48px;
+}
+.button.small {
+    --button-width: 96px;
+    --button-height: 48px;
+}
+.button.regular {
+    --button-width: 120px;
+    --button-height: 60px;
+}
+.button.large {
+    --button-width: 160px;
+    --button-height: 72px;
+}
+
+.button {
+    z-index: 1;
+
+    width: var(--button-width);
+    height: var(--button-height);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+
+    border-radius: 999999px;
+
+    /* Adds reflection effect at the bottom of the buttons, so if background is blue for example, button reflects more blue */
+    background: var(--button-frame-gradient), 
+                linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    background-blend-mode: overlay;
+
+    box-shadow: 0 12px 16px 0 rgba(20, 20, 20, 0.20);
+
+    transition: background 0.1s;
+
+}   .button::after {
+    z-index: 100;
+    content: var(--button-content, "");
+
+    width: calc(var(--button-width) - 8px);
+    height: calc(var(--button-height) - 8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 999999px;
+
+    /* Adds reflection effect at the bottom of the buttons, so if background is blue for example, button reflects more blue */
+    background: var(--button-inner-gradient), 
+                linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    background-blend-mode: overlay;
+
+    /* Text attributes: */
+
+    color: var(--button-text-color);
+    
+    font-family: 'montserrat';
+    font-weight: 550;
+    font-size: calc(var(--button-height) / 3);
+
+    text-align: center;
+    line-height: 56px;
+    text-shadow: 0px calc(var(--button-height) / 50) 1px rgba(255, 255, 255, 0.5), 
+                 0px calc(var(--button-height) / -50) 1px rgba(0, 0, 0, 0.2);
+
+}   .button.circle::after {
+    font-size: 22px;
+
+}   .button:hover {
+    cursor: pointer;
+
+    background: var(--button-hover-frame-gradient);
+
+}   .button:hover::after {
+    color: var(--button-hover-text-color);
+    background: var(--button-hover-inner-gradient);
+
+}

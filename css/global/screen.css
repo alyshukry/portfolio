@@ -1,0 +1,44 @@
+.screen {
+    z-index: 6;
+
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 0.5rem;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+
+    width: 100vw;
+    height: 100vh;
+
+    opacity: 0; /* Hidden initially */
+    transform: translate(-100%, 0); /* Moving off-screen to prevent clicking */
+
+    transition: opacity 0.3s;
+
+}   .screen div {
+    color: #FFFFFF;
+
+    font-family: 'montserrat';
+    font-size: 4rem;
+    font-weight: 800;
+
+    transition: transform 0.1s, color 0.1s;
+
+}   .screen div:hover {
+    color: #ececec;
+
+    cursor: pointer;
+
+    transform: scale(1.1);
+
+}   .screen .exit {
+    margin: 1.5rem 0 0 0;
+
+}

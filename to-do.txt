@@ -1,0 +1,3 @@
+ - add component library
+ - make developer turn into dev when the screen is too narrow
+ - add more stuff when you gain experience, like stats or something or an about me
