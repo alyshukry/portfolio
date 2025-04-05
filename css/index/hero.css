@@ -47,7 +47,7 @@
 }   #hero::after {
     z-index: 4;
 
-    content: "Hi,\AI am a web developer.";
+    content: "Hello,\AI am a web developer.";
     white-space: pre-wrap;
     word-break: break-word;
 
